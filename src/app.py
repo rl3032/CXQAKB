@@ -48,6 +48,7 @@ add_question = st.Page(
     "content/csr_add_question.py",
     title="Add Question",
     icon=":material/add_circle:",
+    default=(role == "CSR")
 )
 
 # SSR Pages
