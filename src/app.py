@@ -40,6 +40,15 @@ qa_data_analysis = st.Page(
     default=(role == "Admin")
 )
 
+# CSR Pages
+
+# CSR-Page 1: Add a QA pair
+
+add_question = st.Page(
+    "content/csr_add_question.py",
+    title="Add Question",
+    icon=":material/add_circle:",
+)
 
 # SSR Pages
 ## SSR-Page 1: Verify QA pairs
@@ -69,6 +78,7 @@ admin_upload_question = st.Page(
 
 # Pages List
 account_pages = [logout, view_question, qa_data_analysis]
+csr_pages = [add_question]
 ssr_pages = [verify_question]
 admin_pages = [admin_user_management, admin_upload_question]
 
@@ -76,6 +86,8 @@ st.title("Knowledge Management System")
 st.logo("images/horizontal_blue.png", icon_image="images/icon_blue.png")
 
 page_dict = {}
+if st.session_state.role in ["CSR", "SSR", "Admin"]:
+    page_dict["CSR"] = csr_pages
 if st.session_state.role in ["SSR", "Admin"]:
     page_dict["SSR"] = ssr_pages
 if st.session_state.role == "Admin":
