@@ -2,7 +2,7 @@ import streamlit as st
 from graph import get_driver
 from utils.user import authenticate_user, create_user
 
-ROLES = [None, "SSR", "Admin"]
+ROLES = [None, "CSR", "SSR", "Admin"]
 
 driver = get_driver()
 
@@ -27,7 +27,7 @@ with login_tab:
 with register_tab:
     new_username = st.text_input("New Username", key="register_username")
     new_password = st.text_input("New Password", type="password", key="register_password")
-    role = st.selectbox("Role", ["SSR", "Admin"], key="register_role")
+    role = st.selectbox("Role", ["CSR", "SSR", "Admin"], key="register_role")
 
     if st.button("Register"):
         with driver.session() as session:

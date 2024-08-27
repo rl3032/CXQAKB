@@ -23,6 +23,7 @@ def create_graph():
         // Roles
         MERGE (adminRole:Role {name: 'Admin'})
         MERGE (ssrRole:Role {name: 'SSR'})
+        MERGE (csrRole:Role {name: 'CSR'})
                     
         // Products
         MERGE (p1:Product {name: 'Permit'})
